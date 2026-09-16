@@ -8,7 +8,7 @@ from dataclasses import dataclass
 
 import pytest
 
-from relay_world import WorldFactSnapshot, project_observation
+from relay_world import Observation, WorldFactSnapshot, project_observation
 
 
 @dataclass(frozen=True, slots=True)
@@ -47,7 +47,7 @@ class _SyntheticActorScenario:
             raise KeyError(body_ref)
         self._actor_to_body[actor_ref] = body_ref
 
-    def execute(self, issued: _IssuedEffect) -> tuple[_Consequence, object]:
+    def execute(self, issued: _IssuedEffect) -> tuple[_Consequence, Observation]:
         if issued.actor_ref not in self._actor_to_body:
             raise KeyError(issued.actor_ref)
         if issued.effect != "step_forward":
