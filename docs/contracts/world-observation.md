@@ -17,15 +17,17 @@ The two records are distinct semantic types even when they carry overlapping fie
 
 A `WorldFactSnapshot` is state attributed to the WORLD by a named semantic authority at a named WORLD epoch. An `Observation` is an immutable record of what a named producer exposed from that snapshot.
 
-This preserves:
+This preserves semantic-role separation:
 
 ```text
 WORLD truth != Observation
 Observation != Belief
 Observation != Narration
-Semantic authority != Observation producer
+Semantic authority role != Observation producer role
 Historical Observation != current WORLD truth
 ```
+
+Here `!=` means that the roles must not be collapsed. It does not require their identifier strings to differ. One component may legitimately be both semantic authority and Observation producer when a concrete world/scenario assigns both roles to it.
 
 ## Fields
 
@@ -57,7 +59,7 @@ Authority means authorized for this claim; it does not imply omniscience or abse
 
 Identity of the component that produced/exposed the Observation. It must be a non-empty string.
 
-`producer_ref` is not promoted into semantic authority. The producer and authority may be different. Transport identity is not represented by this contract and must not be inferred from either field.
+`producer_ref` is not promoted into semantic authority. The producer and authority are distinct semantic roles, but their identifiers may be equal when one component legitimately holds both roles. Transport identity is not represented by this contract and must not be inferred from either field.
 
 ## Deterministic projection
 

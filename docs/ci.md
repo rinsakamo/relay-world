@@ -12,7 +12,7 @@ Runs `python tools/check_repository.py` to verify the canonical repository paths
 
 Runs deterministic Python tests under Python 3.12.
 
-Current tests prove package-surface discipline and the executable WORLD-fact-snapshot → Observation invariants: validation, deterministic projection, authority/producer separation, and immutable historical observations. They do not prove a mutable WORLD, adapter, simulation, or external integration.
+Current tests prove package-surface discipline and the executable WORLD-fact-snapshot → Observation invariants: validation, deterministic projection, authority/producer role separation, and immutable historical observations. They do not prove a mutable WORLD, adapter, simulation, or external integration.
 
 ### `lint`
 
