@@ -18,6 +18,10 @@ Before making architectural or behavioral changes, read:
 
 Do not create contract files, machine-readable authority, adapters, or runtime modules merely to anticipate future components. Introduce a narrower owner only when a real semantic responsibility and implementation/test consequence exists.
 
+## Current executable contracts
+
+- `docs/contracts/world-observation.md` owns the executable WORLD-fact-snapshot → Observation boundary.
+
 ## Authority rules
 
 - RelayWorld owns environment-side claims only through explicit world/fixture authority.
