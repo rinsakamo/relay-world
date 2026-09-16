@@ -1,0 +1,36 @@
+name: Bounded work
+about: Define one bounded RelayWorld responsibility
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What bounded responsibility remains unresolved?
+    validations:
+      required: true
+  - type: textarea
+    id: meaning
+    attributes:
+      label: Meaning / invariant
+      description: State intended semantics before implementation details.
+    validations:
+      required: true
+  - type: textarea
+    id: grand-null
+    attributes:
+      label: Grand Null
+      description: What smaller explanation or bespoke solution could make this platform work unnecessary?
+    validations:
+      required: true
+  - type: textarea
+    id: non-goals
+    attributes:
+      label: Non-goals
+      description: What is explicitly outside this Issue?
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Required evidence
+      description: What evidence would support completion, and what would falsify it?
+    validations:
+      required: true
