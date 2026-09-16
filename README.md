@@ -30,7 +30,8 @@ Concrete worlds, private cast or character data, unpublished experiment conditio
 
 - [`docs/ontology.md`](docs/ontology.md) — canonical environment-side vocabulary.
 - [`docs/architecture.md`](docs/architecture.md) — ownership and system boundaries.
-- [`docs/contracts/world-observation.md`](docs/contracts/world-observation.md) — first executable WORLD fact snapshot → Observation contract.
+- [`docs/contracts/world-observation.md`](docs/contracts/world-observation.md) — executable WORLD fact snapshot → Observation contract.
+- [`docs/contracts/experiment-intervention.md`](docs/contracts/experiment-intervention.md) — executable Experiment Intervention → synthetic WORLD transition contract.
 - [`docs/scenario-boundary.md`](docs/scenario-boundary.md) — platform versus scenario/configuration responsibility.
 - [`docs/development-principles.md`](docs/development-principles.md) — change, authority, review, and convergence discipline.
 - [`docs/evaluation.md`](docs/evaluation.md) — evidence classes and falsification discipline.
@@ -40,9 +41,9 @@ Concrete worlds, private cast or character data, unpublished experiment conditio
 
 ## Status
 
-RelayWorld is in an early executable foundation. Its current runtime surface is intentionally limited to deterministic projection of an authority-attributed WORLD fact snapshot into an immutable Observation with explicit epoch, semantic-authority, and producer identity.
+RelayWorld is in an early executable foundation. Its current runtime surface is intentionally limited to two deterministic boundaries: authority-attributed WORLD fact snapshot → immutable Observation, and experiment-authority intervention → revision of a one-fact `SyntheticFactWorld` with explicit before/after lineage.
 
-The repository does not yet claim a general world runtime, mutable WORLD implementation, world-adapter interface, scheduler, cognition adapter, simulator, action/consequence runtime, Minecraft integration, or physical-environment integration.
+The repository does not yet claim a general WORLD runtime or mutable WORLD interface, world-adapter interface, scheduler, cognition adapter, general action/consequence runtime, Minecraft integration, or physical-environment integration.
 
 A bespoke experiment harness remains the Grand Null. RelayWorld must earn additional machinery through demonstrated reusable responsibilities such as reproducibility, adapter interchangeability, causal/evidence rigor, or cross-world comparability.
 

@@ -21,6 +21,7 @@ Do not create contract files, machine-readable authority, adapters, or runtime m
 ## Current executable contracts
 
 - `docs/contracts/world-observation.md` owns the executable WORLD-fact-snapshot → Observation boundary.
+- `docs/contracts/experiment-intervention.md` owns the executable experiment-intervention → deterministic synthetic-WORLD transition boundary.
 
 ## Authority rules
 
