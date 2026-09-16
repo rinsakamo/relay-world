@@ -1,7 +1,9 @@
-"""RelayWorld public package bootstrap.
+"""RelayWorld public package boundary."""
 
-The package intentionally exposes no runtime API until a concrete executable
-boundary earns one.
-"""
+from .observation import Observation, WorldFactSnapshot, project_observation
 
-__all__: tuple[str, ...] = ()
+__all__ = (
+    "Observation",
+    "WorldFactSnapshot",
+    "project_observation",
+)

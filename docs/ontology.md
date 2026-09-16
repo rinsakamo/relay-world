@@ -20,6 +20,8 @@ A bounded projection or measurement exposed from WORLD state to an actor or cogn
 
 An Observation records what was exposed or measured, with source/provenance and relevant temporal identity. It is not automatically a belief and does not prove what a model later says about it.
 
+The current executable owner for deterministic WORLD-fact-snapshot projection is [`docs/contracts/world-observation.md`](contracts/world-observation.md).
+
 ## Actor Action
 
 An attempted environment-affecting operation attributable to an actor/body execution path.

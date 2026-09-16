@@ -6,13 +6,13 @@ CI provides deterministic evidence for the exact commit checked by a job. It doe
 
 ### `repository-contracts`
 
-Runs `python tools/check_repository.py` to verify the canonical bootstrap paths, repository-local Markdown links, and absence of unresolved merge-conflict markers in supported text files.
+Runs `python tools/check_repository.py` to verify the canonical repository paths, repository-local Markdown links, and absence of unresolved merge-conflict markers in supported text files.
 
 ### `pytest`
 
-Runs the deterministic Python bootstrap tests under Python 3.12.
+Runs deterministic Python tests under Python 3.12.
 
-The initial test proves only that the minimal `relay_world` package is importable and intentionally exposes no runtime API yet.
+Current tests prove package-surface discipline and the executable WORLD-fact-snapshot → Observation invariants: validation, deterministic projection, authority/producer separation, and immutable historical observations. They do not prove a mutable WORLD, adapter, simulation, or external integration.
 
 ### `lint`
 
@@ -26,7 +26,7 @@ Pull-request jobs explicitly check out the PR head SHA and verify `git rev-parse
 
 A green CI run does not prove that:
 
-- a world adapter exists or works;
+- a mutable world runtime or world adapter exists or works;
 - a scenario is reproducible outside tested deterministic fixtures;
 - a cognition system behaves well;
 - Minecraft, Unreal, robotics, or other external integrations work;

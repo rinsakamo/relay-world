@@ -21,12 +21,22 @@ WORLD / fixture authority
 
 RelayWorld does not require RelaySelf. RelaySelf is one possible self-side implementation; stateless agents, transcript-only agents, scripted policies, or future cognition systems may connect through compatible boundaries.
 
+## Current executable boundary
+
+The only current executable semantic boundary is [`WORLD Fact Snapshot → Observation`](contracts/world-observation.md):
+
+```text
+WorldFactSnapshot
+  -- deterministic projection --> Observation
+```
+
+This is not a mutable WORLD runtime or adapter abstraction. It establishes only explicit fact identity, observed string value, WORLD epoch, semantic-authority identity, producer identity, validation, and immutable historical observation semantics.
+
 ## Ownership
 
-RelayWorld is the candidate owner for environment-side responsibilities when those responsibilities become concrete, including:
+RelayWorld currently owns that narrow WORLD-fact-snapshot → Observation projection. Other environment-side responsibilities remain candidates until they become concrete, including:
 
-- authoritative WORLD/fixture state exposure;
-- observation production and provenance;
+- broader authoritative WORLD/fixture state exposure;
 - experiment-authority interventions;
 - environment/body execution boundaries;
 - consequence attestation;
