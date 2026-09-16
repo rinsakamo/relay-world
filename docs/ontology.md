@@ -14,17 +14,48 @@ State attributed to the WORLD by an authorized source.
 
 World State is not automatically visible to an actor. Hidden or privileged fixture state may exist without becoming an Observation.
 
+## Actor
+
+A WORLD-side execution and attribution role through which an external controller, cognition system, human, script, or other control source may participate in the WORLD.
+
+An Actor is not itself evidence of cognition, intent, authorization, or successful execution. RelayWorld uses the role to keep environment-side action attribution distinct from whichever external system produced or authorized a request.
+
+A concrete Scenario may associate an Actor with a Material Body execution path. The platform does not currently define a global Actor registry, controller-binding protocol, or Actor lifecycle.
+
+## Material Body
+
+WORLD state representing the external causal body, avatar, device, or other embodied substrate through which an Actor may affect and sense the WORLD.
+
+`Material` here means that the body belongs to the external causal/world domain rather than to a cognition system's self-model. A Material Body may therefore be physical, simulated, game-based, robotic, or otherwise implemented by a concrete WORLD.
+
+Material Body state may include facts such as pose, geometry, resources, available effectors, or sensor state when a concrete world defines them. Those facts remain WORLD state and are not automatically visible to the Actor or cognition system.
+
+A Material Body is not the Actor role and is not the Self's representation of that body.
+
+Core distinctions:
+
+```text
+Actor != Self / Cognition
+Actor != Material Body
+Actor != Actor Action
+Material Body State != Observation about the Body
+```
+
+Concrete Actor identity, Body identity, and Actor-to-Body binding remain Scenario/configuration responsibility unless a reusable executable contract is later earned.
+
 ## Observation
 
 A bounded projection or measurement exposed from WORLD state to an actor or cognition system.
 
 An Observation records what was exposed or measured, with source/provenance and relevant temporal identity. It is not automatically a belief and does not prove what a model later says about it.
 
+Body-scoped observations such as proprioceptive or interoceptive measurements do not require separate platform types merely because their source is a Material Body. A concrete scenario may distinguish them through fact identity, projection semantics, or future contracts when needed.
+
 The current executable owner for deterministic WORLD-fact-snapshot projection is [`docs/contracts/world-observation.md`](contracts/world-observation.md).
 
 ## Actor Action
 
-An attempted environment-affecting operation attributable to an actor/body execution path.
+An attempted environment-affecting operation attributable to an Actor and, when embodied, a Material Body execution path.
 
 The following roles remain distinct:
 
@@ -32,7 +63,7 @@ The following roles remain distinct:
 proposal -> authorization -> execution -> consequence
 ```
 
-RelayWorld must not infer successful execution from narration alone.
+Actor identity or Body binding does not imply that a proposal was authorized, executed, or successful. RelayWorld must not infer successful execution from narration alone.
 
 ## Experiment Intervention
 

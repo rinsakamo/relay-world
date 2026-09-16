@@ -10,6 +10,8 @@ RelayWorld does **not** define the self. Self-side cognition may be provided by 
 
 ```text
 Self / Cognition != Environment
+Actor != Self / Cognition
+Actor != Material Body != Actor Action
 WORLD truth != Observation != Belief != Narration
 Action Proposal != Authorization != Execution != Consequence
 Experiment Intervention != Actor Action
@@ -20,11 +22,13 @@ Scenario Semantics != Platform Semantics
 
 Authority is not infallibility. A concrete world source may be authoritative for a field while still carrying uncertainty, freshness limits, sensor error, or implementation defects.
 
+`Actor` and `Material Body` are currently foundational semantic roles only. A concrete Scenario may bind an external controller or cognition system to a WORLD-side Actor and Material Body, but RelayWorld does not yet provide a general Actor runtime, body runtime, or control protocol.
+
 ## Public platform and private scenarios
 
 This public repository owns reusable RelayWorld platform semantics and executable infrastructure only when those responsibilities become real.
 
-Concrete worlds, private cast or character data, unpublished experiment conditions, secrets, fixtures, and scenario-specific configuration may live outside this repository. `Re-lay;World.` is one private scenario/configuration family; RelayWorld does not depend on it and must remain usable by independent public or private scenarios.
+Concrete worlds, Actor/Body identities and bindings, private cast or character data, unpublished experiment conditions, secrets, fixtures, and scenario-specific configuration may live outside this repository. `Re-lay;World.` is one private scenario/configuration family; RelayWorld does not depend on it and must remain usable by independent public or private scenarios.
 
 ## Architecture and engineering documents
 
@@ -43,7 +47,9 @@ Concrete worlds, private cast or character data, unpublished experiment conditio
 
 RelayWorld is in an early executable foundation. Its current runtime surface is intentionally limited to two deterministic boundaries: authority-attributed WORLD fact snapshot → immutable Observation, and experiment-authority intervention → revision of a one-fact `SyntheticFactWorld` with explicit before/after lineage.
 
-The repository does not yet claim a general WORLD runtime or mutable WORLD interface, world-adapter interface, scheduler, cognition adapter, general action/consequence runtime, Minecraft integration, or physical-environment integration.
+The repository now also defines foundational Actor / Material Body semantic roles, but these are not executable platform machinery yet.
+
+The repository does not yet claim a general WORLD runtime or mutable WORLD interface, Actor/body execution runtime, controller-binding protocol, world-adapter interface, scheduler, cognition adapter, general action/consequence runtime, Minecraft integration, or physical-environment integration.
 
 A bespoke experiment harness remains the Grand Null. RelayWorld must earn additional machinery through demonstrated reusable responsibilities such as reproducibility, adapter interchangeability, causal/evidence rigor, or cross-world comparability.
 
