@@ -21,25 +21,34 @@ WORLD / fixture authority
 
 RelayWorld does not require RelaySelf. RelaySelf is one possible self-side implementation; stateless agents, transcript-only agents, scripted policies, or future cognition systems may connect through compatible boundaries.
 
-## Current executable boundary
+## Current executable boundaries
 
-The only current executable semantic boundary is [`WORLD Fact Snapshot → Observation`](contracts/world-observation.md):
+RelayWorld currently owns two narrow executable environment-side boundaries.
+
+[`WORLD Fact Snapshot → Observation`](contracts/world-observation.md):
 
 ```text
 WorldFactSnapshot
   -- deterministic projection --> Observation
 ```
 
-This is not a mutable WORLD runtime or adapter abstraction. It establishes only explicit fact identity, observed string value, WORLD epoch, semantic-authority identity, producer identity, validation, and immutable historical observation semantics.
+[`Experiment Intervention → synthetic WORLD transition`](contracts/experiment-intervention.md):
+
+```text
+SyntheticFactWorld current snapshot
+  + ExperimentIntervention
+  -> InterventionTransition(before, after)
+```
+
+The second boundary is deliberately a one-fact deterministic fixture, not a general mutable WORLD runtime or adapter abstraction. It preserves experiment-authority provenance separately from WORLD authority and can feed its resulting snapshot into the existing Observation boundary.
 
 ## Ownership
 
-RelayWorld currently owns that narrow WORLD-fact-snapshot → Observation projection. Other environment-side responsibilities remain candidates until they become concrete, including:
+RelayWorld currently owns those narrow snapshot/Observation and synthetic Experiment Intervention semantics. Other environment-side responsibilities remain candidates until they become concrete, including:
 
 - broader authoritative WORLD/fixture state exposure;
-- experiment-authority interventions;
-- environment/body execution boundaries;
-- consequence attestation;
+- environment/body execution boundaries for Actor Actions;
+- general consequence attestation;
 - scenario loading/validation when a concrete contract exists;
 - experiment evidence capture and reproducibility metadata.
 

@@ -12,7 +12,9 @@ Runs `python tools/check_repository.py` to verify the canonical repository paths
 
 Runs deterministic Python tests under Python 3.12.
 
-Current tests prove package-surface discipline and the executable WORLD-fact-snapshot → Observation invariants: validation, deterministic projection, authority/producer role separation, and immutable historical observations. They do not prove a mutable WORLD, adapter, simulation, or external integration.
+Current tests prove package-surface discipline and two executable boundaries: WORLD-fact-snapshot → Observation, plus Experiment Intervention → deterministic single-fact synthetic WORLD transition. They cover fail-closed validation, authority-role separation, transition consistency, failure atomicity for rejected interventions, epoch progression, and immutable historical observations.
+
+They do not prove a general mutable WORLD/runtime interface, adapter, Actor Action lifecycle, simulation quality, or external integration.
 
 ### `lint`
 
@@ -26,7 +28,7 @@ Pull-request jobs explicitly check out the PR head SHA and verify `git rev-parse
 
 A green CI run does not prove that:
 
-- a mutable world runtime or world adapter exists or works;
+- a general world runtime or world adapter exists or works;
 - a scenario is reproducible outside tested deterministic fixtures;
 - a cognition system behaves well;
 - Minecraft, Unreal, robotics, or other external integrations work;

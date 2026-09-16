@@ -40,11 +40,15 @@ A mutation or control operation performed by experiment authority rather than by
 
 Intervention provenance must remain distinguishable from Actor Action provenance so an experiment cannot accidentally credit the actor for fixture/operator behavior.
 
+The current executable owner for deterministic single-fact synthetic interventions is [`docs/contracts/experiment-intervention.md`](contracts/experiment-intervention.md).
+
 ## Consequence
 
 An environment-side result observed or attested after an attempted action or intervention.
 
 A Consequence may represent success, failure, partial effect, timeout, unknown result, or another explicitly modeled closure state when a concrete contract requires it.
+
+The current synthetic intervention contract records only a successful deterministic before/after transition. It does not yet define the general Consequence lifecycle or failure taxonomy.
 
 ## Evidence
 
