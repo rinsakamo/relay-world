@@ -157,6 +157,39 @@ def test_transition_is_immutable() -> None:
         transition.after = transition.before  # type: ignore[misc]
 
 
+def test_transition_rejects_intervention_fact_mismatch() -> None:
+    before = _initial_snapshot()
+    intervention = ExperimentIntervention(
+        intervention_ref="operator-change-1",
+        experiment_authority_ref="experiment-operator",
+        fact_ref="door.state",
+        value="red",
+    )
+    after = WorldFactSnapshot(
+        fact_ref="box.color",
+        value="red",
+        world_epoch=2,
+        authority_ref="synthetic-world",
+    )
+
+    with pytest.raises(ValueError, match="intervention fact_ref must match before"):
+        InterventionTransition(intervention=intervention, before=before, after=after)
+
+
+def test_transition_rejects_after_fact_mismatch() -> None:
+    before = _initial_snapshot()
+    intervention = _intervention()
+    after = WorldFactSnapshot(
+        fact_ref="door.state",
+        value="red",
+        world_epoch=2,
+        authority_ref="synthetic-world",
+    )
+
+    with pytest.raises(ValueError, match="after fact_ref must match before"):
+        InterventionTransition(intervention=intervention, before=before, after=after)
+
+
 def test_transition_rejects_world_authority_laundering() -> None:
     before = _initial_snapshot()
     intervention = _intervention()

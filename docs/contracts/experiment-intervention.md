@@ -81,7 +81,7 @@ The fixture does not model partial mutation, timeout, retry, or unknown outcome.
 
 ## `InterventionTransition`
 
-An `InterventionTransition` is an immutable deterministic lineage record for one successful synthetic intervention.
+An `InterventionTransition` is an immutable, structurally validated lineage record representing one successful synthetic intervention.
 
 Construction validates that:
 
@@ -91,9 +91,9 @@ Construction validates that:
 - WORLD authority is preserved from before to after;
 - the after epoch is exactly one greater than the before epoch.
 
-This prevents a transition record from laundering experiment authority into WORLD authority or presenting an inconsistent synthetic revision as valid deterministic evidence.
+This prevents a transition record from laundering experiment authority into WORLD authority or presenting an inconsistent synthetic revision as structurally valid.
 
-It does not prove that an external/physical world changed.
+Direct construction of an `InterventionTransition` proves only those structural invariants. It does **not** by itself prove that `SyntheticFactWorld.apply_intervention(...)` executed or that any external WORLD changed. Deterministic evidence of fixture mutation requires the actual execution path plus identified test/run provenance.
 
 ## Observation after intervention
 

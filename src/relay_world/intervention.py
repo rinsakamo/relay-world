@@ -33,7 +33,7 @@ class ExperimentIntervention:
 
 @dataclass(frozen=True, slots=True)
 class InterventionTransition:
-    """Immutable lineage for one successfully applied synthetic intervention."""
+    """Structurally validated immutable lineage for a synthetic intervention."""
 
     intervention: ExperimentIntervention
     before: WorldFactSnapshot
